@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import mudan from './mudan.jpeg';
 import { StyledApp } from './App.style';
+console.log(mudan);
 
 function App () {
   return (

@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "standard-react",
+    "standard"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"]
+  }
+}
