@@ -43,14 +43,11 @@ app.listen(port, () => console.log('app started at port:' + port));
 if (NODE_ENV === DEVELOPMENT) {
   if (urls.lanUrlForTerminal) {
     console.log(
-      `
-        ${chalk.bold('Local:')}            ${urls.localUrlForTerminal}`,
+      `\n  ${chalk.bold('Local:')}            ${urls.localUrlForTerminal}`,
     );
 
     console.log(
-      `
-        ${chalk.bold('On Your Network:')}  ${urls.lanUrlForTerminal}
-      `,
+      `  ${chalk.bold('On Your Network:')}  ${urls.lanUrlForTerminal}\n`,
     );
   } else {
     console.log(`${urls.localUrlForTerminal}`);

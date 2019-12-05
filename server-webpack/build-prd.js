@@ -7,6 +7,8 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 
+const chalk = require('react-dev-utils/chalk');
+
 const webpackConfig = require('./webpack.config');
 const config = webpackMerge(webpackConfig, {
   mode: PRODUCTION,
@@ -26,5 +28,5 @@ compiler.run((err, stats) => {
   stats.errors.forEach((err) => console.log(err));
   stats.warnings.forEach((err) => console.log(err));
 
-  console.log('build successfully!');
+  console.log(chalk.green(`\nserver ${PRODUCTION} enviroment build successfully.\n`));
 });
