@@ -11,7 +11,7 @@ const webpackConfig = require('./webpack.config');
 const config = webpackMerge(webpackConfig, {
   mode: DEVELOPMENT,
   output: {
-    path: path.join(__dirname, '../build'),
+    path: path.join(__dirname, '../build-server-dev'),
   },
 });
 
