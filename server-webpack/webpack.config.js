@@ -22,40 +22,58 @@ module.exports = {
         loader: 'eslint-loader',
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: require.resolve('babel-loader'),
-        options: {
-          plugins: [
-            [
-              'babel-plugin-styled-components',
+        oneOf: [
+          {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            use: [
               {
-                ssr: true,
+                loader: require.resolve('url-loader'),
+                options: {
+                  limit: 1000,
+                  name: 'static/media/[name].[hash:8].[ext]',
+                },
               },
             ],
-          ],
-          presets: [
-            require.resolve('@babel/preset-env'),
-            require.resolve('babel-preset-react-app'),
-          ],
-        },
-      },
-      // {
-      // oneOf: [
-      {
-        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
-        use: [
+          },
           {
-            loader: require.resolve('url-loader'),
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: require.resolve('babel-loader'),
             options: {
-              limit: 1000,
+              plugins: [
+                [
+                  require.resolve('babel-plugin-named-asset-import'),
+                  {
+                    loaderMap: {
+                      svg: {
+                        ReactComponent:
+                        '@svgr/webpack?-svgo,+titleProp,+ref![path]',
+                      },
+                    },
+                  },
+                ],
+                [
+                  'babel-plugin-styled-components',
+                  {
+                    ssr: true,
+                  },
+                ],
+              ],
+              presets: [
+                require.resolve('@babel/preset-env'),
+                require.resolve('babel-preset-react-app'),
+              ],
+            },
+          },
+          {
+            loader: require.resolve('file-loader'),
+            exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+            options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
         ],
       },
-      // ],
-      // },
     ],
   },
   plugins: [
