@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { BrowserRouter } from 'react-router-dom';
+// import Routes from './router';
+
 let renderType;
 if (process.env.REACT_APP_IS_SSR === 'true') {
   renderType = 'hydrate';
@@ -12,7 +15,12 @@ if (process.env.REACT_APP_IS_SSR === 'true') {
 
 console.log(process.env.REACT_APP_IS_SSR, typeof process.env.REACT_APP_IS_SSR, 'process.env.REACT_APP_IS_SSR');
 
-ReactDOM[renderType](<App />, document.getElementById('root'));
+ReactDOM[renderType]((
+  <BrowserRouter>
+    {/* {Routes} */}
+    <App />
+  </BrowserRouter>
+), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

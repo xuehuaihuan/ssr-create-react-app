@@ -1,16 +1,11 @@
 import express from 'express';
-import fs from 'fs';
 
-import { getStyle } from './style';
 import { handleStatic } from './static';
-import { resolveServer } from './paths';
+import { getTemplate } from './template';
 import { DEVELOPMENT } from './constant';
 
-// import openBrowser from 'react-dev-utils/openBrowser';
 import { prepareUrls } from 'react-dev-utils/WebpackDevServerUtils';
 import chalk from 'react-dev-utils/chalk';
-
-const { styleTags, appHtml } = getStyle();
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const HOST = process.env.HOST || '0.0.0.0';
@@ -23,17 +18,10 @@ const app = express();
 
 handleStatic(app);
 
-let template = fs.readFileSync(resolveServer('build/index.html'), 'utf8');
-template = template.replace('<div id="root"></div>', `
-    ${styleTags}
-    <div id="root">
-      ${appHtml}
-    </div>
-  `);
-
 app.get(
-  '/',
+  '*',
   (req, res) => {
+    const template = getTemplate(req.path);
     res.send(template);
   },
 );
