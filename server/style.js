@@ -1,16 +1,15 @@
 import React from 'react';
-import App from '../src/App';
-// import { renderToString } from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import { ServerStyleSheet } from 'styled-components';
 
-export const getStyle = () => {
+export const getStyle = (appHtml) => {
   const sheet = new ServerStyleSheet();
-  let styleTags = '';
-  let appHtml = (<></>);
+  let style = '';
+  let html = (<></>);
 
   try {
-    appHtml = sheet.collectStyles(<App />);
-    styleTags = sheet.getStyleTags();
+    html = renderToString(sheet.collectStyles(appHtml));
+    style = sheet.getStyleTags();
   } catch (error) {
     console.error(error);
   } finally {
@@ -18,7 +17,7 @@ export const getStyle = () => {
   }
 
   return {
-    styleTags,
-    appHtml,
+    style,
+    html,
   };
 };

@@ -2,35 +2,29 @@ import fs from 'fs';
 
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';
-import { renderToString } from 'react-dom/server';
 
-// import { getStyle } from './style';
-import { resolveServer } from './paths';
-
-import { ServerStyleSheet } from 'styled-components';
+import { resolveServer } from './path';
+import { getStyle } from './style';
 import App from '../src/App';
 
-// const { styleTags, appHtml } = getStyle();
-
 export const getTemplate = (path) => {
-  const html = (
+  const appHtml = (
     <StaticRouter location={path} context={{}}>
       <App />
     </StaticRouter>
   );
 
-  const sheet = new ServerStyleSheet();
-  const appHtml = renderToString(sheet.collectStyles(html));
-  // appHtml = renderToString(appHtml);
-  const styleTags = sheet.getStyleTags();
+  const { style, html } = getStyle(appHtml);
 
-  let template = fs.readFileSync(resolveServer('build/index.html'), 'utf8');
-  template = template.replace('<div id="root"></div>', `
-      ${styleTags}
+  const indexHtml = fs.readFileSync(resolveServer('build/index.html'), 'utf8');
+  const template = indexHtml.replace('<div id="root"></div>',
+    `
+      ${style}
       <div id="root">
-        ${appHtml}
+        ${html}
       </div>
-    `);
+    `,
+  );
 
   return template;
 };

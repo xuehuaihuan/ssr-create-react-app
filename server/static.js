@@ -2,7 +2,7 @@ import fs from 'fs';
 
 import express from 'express';
 
-import { resolveServer } from './paths';
+import { resolveServer } from './path';
 
 const mimes = {
   json: 'application/json',
