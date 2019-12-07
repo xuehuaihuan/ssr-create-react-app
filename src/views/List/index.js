@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { StyledList } from './styles';
+
 const List = (props) => {
   return (
-    <div>List</div>
+    <StyledList>List</StyledList>
   );
 };
 
