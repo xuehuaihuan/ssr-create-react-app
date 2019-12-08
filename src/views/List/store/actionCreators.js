@@ -2,10 +2,12 @@ import {
   HANDLE_CHANGE_PAGE,
   CHANGE_LIST,
 } from './actionTypes';
-import axios from 'axios';
 import { fromJS } from 'immutable';
+import { LIST } from '../../../network/api';
 
 const changeListAction = (data) => {
+  data = data || [];
+
   return {
     type: CHANGE_LIST,
     data: fromJS(data),
@@ -19,10 +21,15 @@ export const handleChangePageAction = (currentPage) => {
   };
 };
 
-export const getList = () => {
+export const getListAction = () => {
   return (dispatch) => {
-    axios.get('/api/list.json').then((res) => {
-      const action = changeListAction(res.data);
+    const data = {
+      fromServer: true,
+
+    };
+
+    return global.$http.get(LIST, { data }).then((res) => {
+      const action = changeListAction(res);
 
       dispatch(action);
     }).catch((err) => {

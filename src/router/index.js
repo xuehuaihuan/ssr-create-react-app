@@ -1,4 +1,3 @@
-import { renderRoutes } from 'react-router-config';
 import Home from '../views/Home';
 import List from '../views/List';
 import Order from '../views/Order';
@@ -14,6 +13,7 @@ const routes = [
     path: '/list',
     component: List,
     exact: true,
+    loadData: List.loadData,
   },
   {
     path: '/order',
@@ -27,5 +27,4 @@ const routes = [
   },
 ];
 
-const Routes = renderRoutes(routes);
-export default Routes;
+export default routes;

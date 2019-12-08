@@ -42,7 +42,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleChangeInputValue: (event) => {
-      // console.log(e.target.value);
       const inputValue = event.target.value;
       dispatch(handleChangeInputValueAction(inputValue));
     },

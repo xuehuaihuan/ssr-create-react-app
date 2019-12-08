@@ -1,5 +1,5 @@
-import header from './reducer';
+import list from './reducer';
 
 export * from './actionCreators';
 
-export default header;
+export default list;
