@@ -24,9 +24,9 @@ const Home = (props) => {
       <p>
         <button
           type='button'
-          onClick={props.handleClick}
+          onClick={() => props.handleClick(props.history)}
         >
-          submit - 提交
+          go to list page - 去列表页
         </button>
       </p>
     </StyledHome>
@@ -45,8 +45,8 @@ const mapDispatchToProps = (dispatch) => {
       const inputValue = event.target.value;
       dispatch(handleChangeInputValueAction(inputValue));
     },
-    handleClick: () => {
-      console.log('me me');
+    handleClick: (history) => {
+      history.push('/list');
     },
   };
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { StyledList } from './styles';
-import { handleChangePageAction, getListAction } from './store';
+import { handleChangePageAction, getListAsyncAction } from './store';
 
 import defaultProps from './defaultProps';
 import propTypes from './propTypes';
@@ -27,12 +27,17 @@ class List extends Component {
         >
           <button
             type='button'
+            onClick={this.handleClickItem}
           >
             {item.keyword}
           </button>
         </li>
       );
     });
+  }
+
+  handleClickItem=() => {
+    this.props.history.push('/detail');
   }
 
   render () {
@@ -74,7 +79,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getList: () => {
-      dispatch(getListAction());
+      dispatch(getListAsyncAction());
     },
     handleChangePage: (currentPage, totalPage) => {
       if (currentPage < totalPage) {
@@ -90,8 +95,8 @@ List.defaultProps = defaultProps;
 
 List.propTypes = propTypes;
 
-List.loadData = (dispatch) => {
-  return dispatch(getListAction());
+List.serverLoadData = (dispatch) => {
+  return dispatch(getListAsyncAction());
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

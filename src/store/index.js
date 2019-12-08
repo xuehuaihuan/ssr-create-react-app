@@ -5,12 +5,6 @@ import { fromJS } from 'immutable';
 
 const composeEnhancers = (global && global.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-export const getStore = () => {
-  return createStore(reducer, composeEnhancers(
-    applyMiddleware(thunk),
-  ));
-};
-
 export const getServerStore = () => {
   return createStore(reducer, composeEnhancers(
     applyMiddleware(thunk),
@@ -25,5 +19,3 @@ export const getClientStore = () => {
     applyMiddleware(thunk),
   ));
 };
-
-export default getStore;

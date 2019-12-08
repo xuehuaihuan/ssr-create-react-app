@@ -20,4 +20,18 @@ export const handleApi = (app) => {
       });
     },
   );
+
+  app.post(
+    '/api/detail',
+    (req, res) => {
+      fs.readFile(resolveServer('mock/api/detail-0.json'), 'utf8', (err, data) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+
+        res.send(data);
+      });
+    },
+  );
 };

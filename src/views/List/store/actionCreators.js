@@ -1,15 +1,15 @@
 import {
   HANDLE_CHANGE_PAGE,
-  CHANGE_LIST,
+  SET_LIST,
 } from './actionTypes';
 import { fromJS } from 'immutable';
-import { LIST } from '../../../network/api';
+import { API_LIST } from '../../../network/api';
 
 const changeListAction = (data) => {
   data = data || [];
 
   return {
-    type: CHANGE_LIST,
+    type: SET_LIST,
     data: fromJS(data),
   };
 };
@@ -21,14 +21,14 @@ export const handleChangePageAction = (currentPage) => {
   };
 };
 
-export const getListAction = () => {
+export const getListAsyncAction = () => {
   return (dispatch) => {
     const data = {
       fromServer: true,
 
     };
 
-    return global.$http.get(LIST, { data }).then((res) => {
+    return global.$http.get(API_LIST, { data }).then((res) => {
       const action = changeListAction(res);
 
       dispatch(action);

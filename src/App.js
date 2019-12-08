@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function App (props) {
   return (
     <div className='app'>
-      公共部分
+      <div>公共部分 - public part</div>
       {props.children}
     </div>
   );

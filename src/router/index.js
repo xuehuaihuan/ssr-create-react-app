@@ -1,9 +1,13 @@
 import Home from '../views/Home';
 import List from '../views/List';
-import Order from '../views/Order';
-import OrderDetail from '../views/OrderDetail';
+import Detail from '../views/Detail';
 
 const routes = [
+  {
+    path: '/',
+    component: Home,
+    exact: true,
+  },
   {
     path: '/home',
     component: Home,
@@ -13,17 +17,13 @@ const routes = [
     path: '/list',
     component: List,
     exact: true,
-    loadData: List.loadData,
+    serverLoadData: List.serverLoadData,
   },
   {
-    path: '/order',
-    component: Order,
+    path: '/detail',
+    component: Detail,
     exact: true,
-  },
-  {
-    path: '/order-detail',
-    component: OrderDetail,
-    exact: true,
+    serverLoadData: Detail.serverLoadData,
   },
 ];
 
