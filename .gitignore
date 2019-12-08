@@ -11,7 +11,6 @@
 # production
 /build
 /build-server-dev
-/mock
 
 # misc
 .DS_Store
