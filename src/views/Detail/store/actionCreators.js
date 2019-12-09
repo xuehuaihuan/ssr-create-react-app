@@ -4,7 +4,7 @@ import {
 import { fromJS } from 'immutable';
 import { API_DETAIL } from '../../../network/api';
 
-const setDetailAction = (data) => {
+export const setDetailAction = (data) => {
   data = data || {};
 
   return {

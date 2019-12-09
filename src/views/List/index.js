@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
 import { StyledList } from './styles';
-import { handleChangePageAction, getListAsyncAction } from './store';
+import { handleChangePageAction, getListAsyncAction, setListAction } from './store';
 
 import defaultProps from './defaultProps';
 import propTypes from './propTypes';
@@ -43,6 +43,7 @@ class List extends Component {
 
   render () {
     const props = this.props;
+
     return (
       <StyledList>
         <Helmet>
@@ -71,6 +72,10 @@ class List extends Component {
       this.props.getList();
     }
   }
+
+  componentWillUnmount () {
+    this.props.resetList();
+  }
 };
 
 const mapStateToProps = (state) => {
@@ -92,6 +97,10 @@ const mapDispatchToProps = (dispatch) => {
       } else {
         dispatch(handleChangePageAction(1));
       }
+    },
+
+    resetList: () => {
+      dispatch(setListAction([]));
     },
   };
 };

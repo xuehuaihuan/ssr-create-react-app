@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
 import { StyledDetail } from './styles';
-import { getDetailAsyncAction } from './store';
+import { getDetailAsyncAction, setDetailAction } from './store';
 
 import defaultProps from './defaultProps';
 import propTypes from './propTypes';
@@ -41,6 +41,10 @@ class Detail extends Component {
       this.props.getDetail(this.props.match.params.id);
     }
   }
+
+  componentWillUnmount () {
+    this.props.resetDetail();
+  }
 };
 
 const mapStateToProps = (state) => {
@@ -58,6 +62,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getDetail: (id) => {
       dispatch(getDetailAsyncAction(id));
+    },
+    resetDetail: () => {
+      dispatch(setDetailAction({}));
     },
   };
 };

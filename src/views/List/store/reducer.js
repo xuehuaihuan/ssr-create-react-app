@@ -15,7 +15,7 @@ export default (state = defaultState, action) => {
     case HANDLE_CHANGE_PAGE:
       return state.set('currentPage', action.currentPage);
     case SET_LIST: {
-      const list = action.data.get('data');
+      const list = action.data;
       const totalPage = Math.ceil(list.size / 10);
       return state.merge({
         list,

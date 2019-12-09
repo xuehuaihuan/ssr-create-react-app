@@ -5,7 +5,7 @@ import {
 import { fromJS } from 'immutable';
 import { API_LIST } from '../../../network/api';
 
-const changeListAction = (data) => {
+export const setListAction = (data) => {
   data = data || [];
 
   return {
@@ -23,13 +23,8 @@ export const handleChangePageAction = (currentPage) => {
 
 export const getListAsyncAction = () => {
   return (dispatch) => {
-    const data = {
-      fromServer: true,
-
-    };
-
-    return global.$http.get(API_LIST, { data }).then((res) => {
-      const action = changeListAction(res);
+    return global.$http.get(API_LIST).then((res) => {
+      const action = setListAction(res.data);
 
       dispatch(action);
     }).catch((err) => {
