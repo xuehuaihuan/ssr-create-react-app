@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 import { StyledHome } from './styles';
 import {
@@ -12,6 +13,10 @@ import propTypes from './propTypes';
 const Home = (props) => {
   return (
     <StyledHome>
+      <Helmet>
+        <title>react Server-Side Rendering(SSR) practice</title>
+        <meta name='description' content='The SSR practice of Xue Huaihuan' />
+      </Helmet>
       Home
       <p>
         <input

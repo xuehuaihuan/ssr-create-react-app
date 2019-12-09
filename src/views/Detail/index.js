@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 import { StyledDetail } from './styles';
 import { getDetailAsyncAction } from './store';
@@ -20,6 +21,11 @@ class Detail extends Component {
 
     return (
       <StyledDetail>
+        <Helmet>
+          <title>SSR detail</title>
+          <meta name='description' content='Send parameters through post method to get asynchronous data from the server' />
+        </Helmet>
+        Detail
         <h3>
           {article.title}
         </h3>

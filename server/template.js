@@ -2,9 +2,9 @@ import fs from 'fs';
 
 import React from 'react';
 import { Provider } from 'react-redux';
-
 import { StaticRouter } from 'react-router-dom';
 import { renderRoutes, matchRoutes } from 'react-router-config';
+import { Helmet } from 'react-helmet';
 
 import routes from '../src/router';
 import { resolveServer } from './path';
@@ -28,9 +28,13 @@ const getTemplate = (path, Routes, store) => {
   );
 
   const { style, html } = getStyle(appHtml);
+  const helmet = Helmet.renderStatic();
 
   const indexHtml = fs.readFileSync(resolveServer('build/index.html'), 'utf8');
-  const template = indexHtml.replace('<div id="root"></div>',
+  const template = indexHtml
+    .replace('<title>title</title>', helmet.title.toString())
+    .replace('<meta name="description" content="description content" />', helmet.meta.toString())
+    .replace('<div id="root"></div>',
     `
       ${style}
       <div id="root">
@@ -40,7 +44,7 @@ const getTemplate = (path, Routes, store) => {
         window.__SERVER_STATE__ = ${__SERVER_STATE__}
       </script>
     `,
-  );
+    );
 
   return template;
 };

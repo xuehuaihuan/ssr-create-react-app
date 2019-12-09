@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 import { StyledList } from './styles';
 import { handleChangePageAction, getListAsyncAction } from './store';
@@ -44,7 +45,11 @@ class List extends Component {
     const props = this.props;
     return (
       <StyledList>
-      List
+        <Helmet>
+          <title>SSR list</title>
+          <meta name='description' content='Get asynchronous data from the server' />
+        </Helmet>
+        List
         <p>
           <span
             onClick={() => {
