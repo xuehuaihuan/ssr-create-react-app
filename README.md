@@ -3,10 +3,14 @@
 
 ##  common rules
 
-- React naming rules: import, `Camel Case`, eg: camelCaseStyle;
-React Component, or Class name, `Pascal`(first letter upper case + Camel Case), eg: PascalStyleComponent;
-constant, `Under Score Case`, eg: UNDER_SCORE_CASE_STYLE;
-- JavaScript style: use `standardx` and `eslint` override part of `standard` rules;
+* React naming rules
+  - export, import, `Camel Case`, eg: camelCaseStyle;
+  - React Component, or Class name, `Pascal`(first letter upper case + Camel Case), eg: PascalStyleComponent;
+  - constant, `Under Score Case`, eg: UNDER_SCORE_CASE_STYLE;
+* JavaScript style, use `standardx` and `eslint` override part of `standard` rules;
+* CSS, `styled-components`, `stylelint`, `stylelint-config-standard`;
+* server, `express`;
+* editor, `VS code`, or `Sublime`, `autoFixOnSave` JavaScript standard style and stylelint standard style;
 
 
 ## development enviroment
