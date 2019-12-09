@@ -1,12 +1,12 @@
 # ssr-create-react-app
-## Build server-side rendering based on create react app scaffold
+- Build server-side rendering based on create react app scaffold
 
 ##  common rules
 
 - React naming rules: import, `Camel Case`, eg: camelCaseStyle;
 React Component, or Class name, `Pascal`(first letter upper case + Camel Case), eg: PascalStyleComponent;
 constant, `Under Score Case`, eg: UNDER_SCORE_CASE_STYLE;
-- JavaScript style:   `standard`, `standard-react`;
+- JavaScript style: use `standardx` and `eslint` override part of `standard` rules;
 
 
 ## development enviroment
