@@ -15,6 +15,7 @@ constant, `Under Score Case`, eg: UNDER_SCORE_CASE_STYLE;
 - first, `npm run server:build:dev`;
 - then, `npm run server:start:dev`;
 - or, `npm run start:ssr` twice at first time;
+- If you don't want to use SSR, you can  execute `npm start` or `npm run build` as usual;
 
 
 ## production enviroment
