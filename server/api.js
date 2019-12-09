@@ -1,10 +1,13 @@
 import fs from 'fs';
 
+import express from 'express';
+
 import { resolveServer } from './path';
 
 import cors from 'cors';
 
 export const handleApi = (app) => {
+  app.use(express.json());
   app.use(cors());
 
   app.get(
@@ -24,8 +27,9 @@ export const handleApi = (app) => {
   app.post(
     '/api/detail',
     (req, res) => {
-      fs.readFile(resolveServer('mock/api/detail-0.json'), 'utf8', (err, data) => {
+      fs.readFile(resolveServer(`mock/api/detail/${req.body.id}.json`), 'utf8', (err, data) => {
         if (err) {
+          res.status(404).send('Not Found');
           console.log(err);
           return;
         }

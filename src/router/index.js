@@ -20,7 +20,7 @@ const routes = [
     serverLoadData: List.serverLoadData,
   },
   {
-    path: '/detail',
+    path: '/detail/:id',
     component: Detail,
     exact: true,
     serverLoadData: Detail.serverLoadData,

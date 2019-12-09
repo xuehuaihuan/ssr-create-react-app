@@ -13,13 +13,13 @@ const setDetailAction = (data) => {
   };
 };
 
-export const getDetailAsyncAction = () => {
+export const getDetailAsyncAction = (id) => {
   return (dispatch) => {
     const data = {
-      fromServer: true,
+      id,
     };
 
-    return global.$http.post(API_DETAIL, { data }).then((res) => {
+    return global.$http.post(API_DETAIL, data).then((res) => {
       const action = setDetailAction(res);
 
       dispatch(action);

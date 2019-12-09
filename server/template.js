@@ -53,10 +53,10 @@ export const handleTemplate = (path) => {
 
   const promises = [];
 
-  matchedRoutes.forEach((item) => {
-    const serverLoadData = item.route.serverLoadData;
+  matchedRoutes.forEach(({ route, match }) => {
+    const serverLoadData = route.serverLoadData;
     if (serverLoadData) {
-      promises.push(serverLoadData(store.dispatch));
+      promises.push(serverLoadData(store.dispatch, match.params));
     }
   });
 

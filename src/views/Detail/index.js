@@ -32,7 +32,7 @@ class Detail extends Component {
 
   componentDidMount () {
     if (!this.props.detail.article) {
-      this.props.getDetail();
+      this.props.getDetail(this.props.match.params.id);
     }
   }
 };
@@ -50,8 +50,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getDetail: () => {
-      dispatch(getDetailAsyncAction());
+    getDetail: (id) => {
+      dispatch(getDetailAsyncAction(id));
     },
   };
 };
@@ -60,8 +60,8 @@ Detail.defaultProps = defaultProps;
 
 Detail.propTypes = propTypes;
 
-Detail.serverLoadData = (dispatch) => {
-  return dispatch(getDetailAsyncAction());
+Detail.serverLoadData = (dispatch, params) => {
+  return dispatch(getDetailAsyncAction(params.id));
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);

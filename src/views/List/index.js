@@ -27,7 +27,7 @@ class List extends Component {
         >
           <button
             type='button'
-            onClick={this.handleClickItem}
+            onClick={() => this.handleClickItem(item.id)}
           >
             {item.keyword}
           </button>
@@ -36,8 +36,8 @@ class List extends Component {
     });
   }
 
-  handleClickItem=() => {
-    this.props.history.push('/detail');
+  handleClickItem=(id) => {
+    this.props.history.push(`/detail/${id}`);
   }
 
   render () {
