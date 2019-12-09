@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import routes from './router';
+import { HelmetProvider } from 'react-helmet-async';
 
 import App from './App';
 import { getClientStore } from './store';
@@ -27,7 +28,9 @@ const store = getClientStore();
 ReactDOM[renderType]((
   <Provider store={store}>
     <BrowserRouter>
-      <App>{Routes}</App>
+      <HelmetProvider>
+        <App>{Routes}</App>
+      </HelmetProvider>
     </BrowserRouter>
   </Provider>
 ), document.getElementById('root'));

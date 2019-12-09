@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import { renderRoutes, matchRoutes } from 'react-router-config';
-import { Helmet } from 'react-helmet';
+import { HelmetProvider } from 'react-helmet-async';
 
 import routes from '../src/router';
 import { resolveServer } from './path';
@@ -17,23 +17,27 @@ const getTemplate = (path, Routes, store) => {
   serverState = serverState.toJS();
   const __SERVER_STATE__ = JSON.stringify(serverState);
 
+  const helmetContext = {};
+
   const appHtml = (
     <Provider store={store}>
       <StaticRouter location={path} context={{}}>
-        <App>
-          {Routes}
-        </App>
+        <HelmetProvider context={helmetContext}>
+          <App>
+            {Routes}
+          </App>
+        </HelmetProvider>
       </StaticRouter>
     </Provider>
   );
 
   const { style, html } = getStyle(appHtml);
-  const helmet = Helmet.renderStatic();
+  const { helmet } = helmetContext;
 
   const indexHtml = fs.readFileSync(resolveServer('build/index.html'), 'utf8');
   const template = indexHtml
     .replace('<title>title</title>', helmet.title.toString())
-    .replace('<meta name="description" content="description content" />', helmet.meta.toString())
+    .replace(/<meta name="description" content="description content"\s*\/>/, helmet.meta.toString())
     .replace('<div id="root"></div>',
     `
       ${style}
