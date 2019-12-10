@@ -37,9 +37,8 @@ ReactDOM[renderType]((
                 <TransitionGroup className='route-transition-group'>
                   <CSSTransition
                     key={location.key}
-                    timeout={300}
+                    timeout={200}
                     classNames='route-switch'
-                    appear
                   >
                     <Switch location={location}>
                       {Routes}

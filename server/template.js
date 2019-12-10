@@ -31,7 +31,7 @@ const getTemplate = (path, Routes, store) => {
                   <TransitionGroup className='route-transition-group'>
                     <CSSTransition
                       key={location.key}
-                      timeout={300}
+                      timeout={200}
                       classNames='route-switch'
                       appear
                     >
@@ -54,9 +54,9 @@ const getTemplate = (path, Routes, store) => {
   const indexHtml = fs.readFileSync(resolveServer('build/index.html'), 'utf8');
   const template = indexHtml
     .replace('<title>title</title>', helmet.title.toString())
-    .replace(/<meta name="description" content="description content"\s*\/>/, helmet.meta.toString())
+    .replace(/<meta name="description" content="description content"\s*\/>/, `${helmet.meta.toString()}\n${style}`)
     .replace('<div id="root"></div>',
-    `<div id="root">${style}${html}</div><script>window.__SERVER_STATE__ = ${__SERVER_STATE__}</script>`,
+    `<div id="root">${html}</div><script>window.__SERVER_STATE__ = ${__SERVER_STATE__}</script>`,
     );
 
   return template;
