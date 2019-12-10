@@ -21,10 +21,10 @@ class Detail extends Component {
 
     return (
       <StyledDetail>
-        <h3>
+        <h3 className='title'>
           {article.title}
         </h3>
-        <div>
+        <div className='content'>
           {article.content}
         </div>
         <Helmet>

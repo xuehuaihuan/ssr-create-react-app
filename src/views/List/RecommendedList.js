@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
+import { withRouter } from 'react-router-dom';
 
 import { StyledRecommendedList } from './styles/RecommendedList';
 import { handleChangePageAction, getListAsyncAction, setListAction } from './store';
@@ -120,4 +121,4 @@ RecommendedList.serverLoadData = (dispatch) => {
   return dispatch(getListAsyncAction());
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecommendedList);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RecommendedList));
