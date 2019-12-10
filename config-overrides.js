@@ -5,16 +5,16 @@ module.exports = [
     webpack: (config) => {
       const rules = Array.from(config.module.rules);
 
-      rules.forEach((item, index) => {
+      rules.forEach((item) => {
         if (Array.isArray(item.oneOf)) {
-          item.oneOf.forEach((subitem, subindex) => {
+          item.oneOf.forEach((subitem) => {
             const hasBabelLoader = subitem.include &&
             subitem.include.includes('src') &&
             subitem.loader &&
             subitem.loader.includes('babel-loader');
 
             if (hasBabelLoader) {
-              subitem.options.plugins.push(
+              subitem.options.plugins.unshift(
                 [
                   'babel-plugin-styled-components',
                   {

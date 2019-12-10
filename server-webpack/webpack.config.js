@@ -42,6 +42,13 @@ module.exports = {
             options: {
               plugins: [
                 [
+                  'babel-plugin-styled-components',
+                  {
+                    ssr: true,
+                    pure: true,
+                  },
+                ],
+                [
                   require.resolve('babel-plugin-named-asset-import'),
                   {
                     loaderMap: {
@@ -50,13 +57,6 @@ module.exports = {
                         '@svgr/webpack?-svgo,+titleProp,+ref![path]',
                       },
                     },
-                  },
-                ],
-                [
-                  'babel-plugin-styled-components',
-                  {
-                    ssr: true,
-                    pure: true,
                   },
                 ],
               ],

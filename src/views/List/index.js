@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
 import { StyledList } from './styles';
+import RecommendedList from './RecommendedList';
+import { getListAsyncAction } from './store';
 
 import defaultProps from './defaultProps';
 import propTypes from './propTypes';
-
-import RecommendedList from './RecommendedList';
 
 class List extends Component {
   render () {
@@ -38,6 +38,7 @@ List.defaultProps = defaultProps;
 List.propTypes = propTypes;
 
 List.serverLoadData = (dispatch) => {
+  return dispatch(getListAsyncAction());
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

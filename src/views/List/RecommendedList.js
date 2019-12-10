@@ -117,8 +117,4 @@ RecommendedList.defaultProps = defaultProps;
 
 RecommendedList.propTypes = propTypes;
 
-RecommendedList.serverLoadData = (dispatch) => {
-  return dispatch(getListAsyncAction());
-};
-
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RecommendedList));

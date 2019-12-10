@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import routes from './router';
 import { HelmetProvider } from 'react-helmet-async';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import App from './App';
 import { getClientStore } from './store';
+import routes from './router';
 import $http from './network/http';
 import * as serviceWorker from './serviceWorker';
 
@@ -29,7 +30,25 @@ ReactDOM[renderType]((
   <Provider store={store}>
     <BrowserRouter>
       <HelmetProvider>
-        <App>{Routes}</App>
+        <App>
+          <Route
+            render={
+              ({ location }) => (
+                <TransitionGroup className='route-transition-group'>
+                  <CSSTransition
+                    key={location.key}
+                    timeout={300}
+                    classNames='route-switch'
+                    appear
+                  >
+                    <Switch location={location}>
+                      {Routes}
+                    </Switch>
+                  </CSSTransition>
+                </TransitionGroup>)
+            }
+          />
+        </App>
       </HelmetProvider>
     </BrowserRouter>
   </Provider>

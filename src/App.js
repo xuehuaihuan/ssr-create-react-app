@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import theme from './assets/theme';
-import { GlobalStyle } from './assets/styles';
+import { GlobalStyle, GlobalResetStyle } from './assets/styles';
 import { GlobalIconfontStyle } from './assets/iconfont';
 import Header from './views/components/Header';
 
@@ -12,6 +12,7 @@ function App (props) {
       <div className='app'>
         <Header />
         {props.children}
+        <GlobalResetStyle />
         <GlobalStyle />
         <GlobalIconfontStyle />
       </div>

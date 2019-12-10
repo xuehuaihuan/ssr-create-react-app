@@ -2,9 +2,10 @@ import fs from 'fs';
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter, Switch, Route } from 'react-router-dom';
 import { renderRoutes, matchRoutes } from 'react-router-config';
 import { HelmetProvider } from 'react-helmet-async';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import routes from '../src/router';
 import { resolveServer } from './path';
@@ -24,7 +25,23 @@ const getTemplate = (path, Routes, store) => {
       <StaticRouter location={path} context={{}}>
         <HelmetProvider context={helmetContext}>
           <App>
-            {Routes}
+            <Route
+              render={
+                ({ location }) => (
+                  <TransitionGroup className='route-transition-group'>
+                    <CSSTransition
+                      key={location.key}
+                      timeout={300}
+                      classNames='route-switch'
+                      appear
+                    >
+                      <Switch location={location}>
+                        {Routes}
+                      </Switch>
+                    </CSSTransition>
+                  </TransitionGroup>)
+              }
+            />
           </App>
         </HelmetProvider>
       </StaticRouter>

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalResetStyle = createGlobalStyle`
   html,
   body,
   div,
@@ -143,29 +143,5 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font: inherit;
     line-height: normal;
-  }
-
-  html {
-    overflow-x: hidden;
-    user-select: none;
-    text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    word-break: break-all;
-    word-wrap: break-word;
-    background-color: #f8f8f8;
-  }
-
-  a,
-  body {
-    color: #333;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  body {
-    font: 16px/1.5 'Microsoft YaHei', sans-serif;
   }
 `;
