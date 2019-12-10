@@ -1,0 +1,8 @@
+{
+  "id": "10",
+  "keyword": "JavaScript standard style",
+  "article": {
+    "title": "JavaScript standard style",
+    "content": "JavaScript style guide, linter, and formatter This module saves you (and others!) time in three ways: No configuration. The easiest way to enforce code quality in your project. No decisions to make. No .eslintrc files to manage. It just works. Automatically format code. "
+  }
+}

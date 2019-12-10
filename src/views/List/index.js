@@ -46,7 +46,6 @@ class List extends Component {
 
     return (
       <StyledList>
-        List
         <p>
           <span
             onClick={() => {

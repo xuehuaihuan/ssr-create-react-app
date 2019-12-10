@@ -1,0 +1,8 @@
+{
+  "id": "26",
+  "keyword": "url-loader",
+  "article": {
+    "title": "url-loader",
+    "content": "A loader for webpack which transforms files into base64 URIs."
+  }
+}

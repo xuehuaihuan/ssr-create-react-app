@@ -13,8 +13,14 @@ export const StyledSearch = styled.form`
     border-radius: ${props => props.theme.scpx(36)};
     padding: ${props => props.theme.scpx(7)} ${props => props.theme.scpx(18)};
     width: calc(100% - 40px);
-    background: ${props => props.theme.generalColor6};
+    background: ${props => props.theme.generalColor9};
     line-height: 1.5;
+    color: ${props => props.theme.minorColor};
+    caret-color: ${props => props.theme.minorColor};
+
+    &::placeholder {
+      color: ${props => props.theme.majorColor};
+    }
 
     &.slide-enter {
       width: calc(100% - 40px);
@@ -52,7 +58,7 @@ export const StyledSearch = styled.form`
     &.search-enter-done,
     &.search-exit {
       right: ${props => props.theme.scpx(20)};
-      background-color: ${props => props.theme.generalColor8};
+      background-color: ${props => props.theme.minorColor};
       color: ${props => props.theme.lightColor};
     }
 

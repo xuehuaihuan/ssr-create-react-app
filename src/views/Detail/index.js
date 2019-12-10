@@ -21,7 +21,6 @@ class Detail extends Component {
 
     return (
       <StyledDetail>
-        Detail
         <h3>
           {article.title}
         </h3>

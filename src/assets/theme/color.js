@@ -71,7 +71,7 @@ export const generalColor5 = '#ddd';
 export const generalColor6 = '#eee';
 export const generalColor7 = '#969696';
 export const generalColor8 = '#dcdcdc';
-export const generalColor9 = '#f7f7f7';
+export const generalColor9 = '#f8f8f8';
 export const generalColor10 = '#f0f0f0';
 /* general color end - 常规颜色/一般颜色 结束 */
 

@@ -1,0 +1,8 @@
+{
+  "id": "32",
+  "keyword": "rescripts/cli",
+  "article": {
+    "title": "rescripts/cli",
+    "content": "Take control of your create-react-app project configurations. No ejecting, no custom react-scripts fork, no limitations."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "12",
+  "keyword": "React Redux",
+  "article": {
+    "title": "React Redux",
+    "content": "Official React bindings for Redux. Performant and flexible."
+  }
+}

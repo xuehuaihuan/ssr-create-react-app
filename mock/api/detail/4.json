@@ -1,0 +1,8 @@
+{
+  "id": "4",
+  "keyword": "react-router-config",
+  "article": {
+    "title": "react-router-config",
+    "content": "Static route configuration helpers for React Router."
+  }
+}

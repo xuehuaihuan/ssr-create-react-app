@@ -1,0 +1,8 @@
+{
+  "id": "14",
+  "keyword": "redux-immutable",
+  "article": {
+    "title": "redux-immutable",
+    "content": "redux-immutable is used to create an equivalent function of Redux combineReducers that works with Immutable.js state."
+  }
+}
