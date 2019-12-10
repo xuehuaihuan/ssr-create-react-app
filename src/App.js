@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
+import theme from './assets/theme';
+import { GlobalStyle } from './assets/styles';
+import { GlobalIconfontStyle } from './assets/iconfont';
+import Header from './views/components/Header';
 
 function App (props) {
   return (
-    <div className='app'>
-      <div>公共部分 - public part</div>
-      {props.children}
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className='app'>
+        <Header />
+        {props.children}
+        <GlobalStyle />
+        <GlobalIconfontStyle />
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -46,10 +46,6 @@ class List extends Component {
 
     return (
       <StyledList>
-        <Helmet>
-          <title>SSR list</title>
-          <meta name='description' content='Get asynchronous data from the server' />
-        </Helmet>
         List
         <p>
           <span
@@ -63,6 +59,10 @@ class List extends Component {
         <ul>
           {this.getPageList()}
         </ul>
+        <Helmet>
+          <title>SSR list</title>
+          <meta name='description' content='Get asynchronous data from the server' />
+        </Helmet>
       </StyledList>
     );
   }

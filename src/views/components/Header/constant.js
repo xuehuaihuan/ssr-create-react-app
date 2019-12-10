@@ -1,0 +1,1 @@
+export const INPUT_FOCUS_DURATION = 200;

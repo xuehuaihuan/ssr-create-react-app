@@ -6,6 +6,7 @@ import { StyledHome } from './styles';
 import {
   handleChangeInputValueAction,
 } from './store';
+import Figure from './Figure';
 
 import defaultProps from './defaultProps';
 import propTypes from './propTypes';
@@ -13,27 +14,20 @@ import propTypes from './propTypes';
 const Home = (props) => {
   return (
     <StyledHome>
+      <p className='btn-container'>
+        <button
+          type='button'
+          className='btn-go-next-page'
+          onClick={() => props.handleClick(props.history)}
+        >
+        go to list page - 去列表页
+        </button>
+      </p>
+      <Figure />
       <Helmet>
         <title>react Server-Side Rendering(SSR) practice</title>
         <meta name='description' content='The SSR practice of Xue Huaihuan' />
       </Helmet>
-      Home
-      <p>
-        <input
-          type='text'
-          value={props.inputValue}
-          onChange={props.handleChangeInputValue}
-          placeholder='please input search keywords - 请输入搜索关键词'
-        />
-      </p>
-      <p>
-        <button
-          type='button'
-          onClick={() => props.handleClick(props.history)}
-        >
-          go to list page - 去列表页
-        </button>
-      </p>
     </StyledHome>
   );
 };

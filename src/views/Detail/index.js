@@ -21,10 +21,6 @@ class Detail extends Component {
 
     return (
       <StyledDetail>
-        <Helmet>
-          <title>SSR detail</title>
-          <meta name='description' content='Send parameters through post method to get asynchronous data from the server' />
-        </Helmet>
         Detail
         <h3>
           {article.title}
@@ -32,6 +28,10 @@ class Detail extends Component {
         <div>
           {article.content}
         </div>
+        <Helmet>
+          <title>SSR detail</title>
+          <meta name='description' content='Send parameters through post method to get asynchronous data from the server' />
+        </Helmet>
       </StyledDetail>
     );
   }
