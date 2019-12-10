@@ -8,6 +8,14 @@ export const StyledRecommendedList = styled.div`
     background-color: ${props => props.theme.lightColor};
     font-size: ${props => props.theme.scpx(12)};
     line-height: 1;
+    transition: all 300ms linear;
+
+    &:hover,
+    &:active {
+      border-color: ${props => props.theme.generalColor2};
+      background-color: ${props => props.theme.generalColor2};
+      color: ${props => props.theme.lightColor};
+    }
   }
 
   .change-action {

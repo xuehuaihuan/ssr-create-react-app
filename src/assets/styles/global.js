@@ -33,9 +33,16 @@ export const GlobalStyle = createGlobalStyle`
   .route-switch-appear-active,
   .route-switch-enter-active {
     opacity: 1;
-    transition: opacity 200ms linear;
     position: absolute;
     width: 100%;
+  }
+
+  .route-switch-appear-active {
+    transition: opacity 300ms linear;
+  }
+
+  .route-switch-enter-active {
+    transition: opacity 180ms linear 120ms;
   }
 
   .route-switch-exit {
@@ -44,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
 
   .route-switch-exit-active {
     opacity: 0;
-    transition: opacity 150ms linear;
+    transition: opacity 120ms linear;
     position: absolute;
     width: 100%;
   }

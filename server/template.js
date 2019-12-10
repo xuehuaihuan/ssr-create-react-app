@@ -31,7 +31,7 @@ const getTemplate = (path, Routes, store) => {
                   <TransitionGroup className='route-transition-group'>
                     <CSSTransition
                       key={location.key}
-                      timeout={200}
+                      timeout={300}
                       classNames='route-switch'
                       appear
                     >
