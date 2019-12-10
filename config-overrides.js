@@ -1,37 +1,12 @@
-const webpackMerge = require('webpack-merge');
+const rewireStyledComponents = require('react-app-rewire-styled-components');
+const env = process.env.NODE_ENV;
 
 module.exports = [
   {
     webpack: (config) => {
-      const rules = Array.from(config.module.rules);
-
-      rules.forEach((item) => {
-        if (Array.isArray(item.oneOf)) {
-          item.oneOf.forEach((subitem) => {
-            const hasBabelLoader = subitem.include &&
-            subitem.include.includes('src') &&
-            subitem.loader &&
-            subitem.loader.includes('babel-loader');
-
-            if (hasBabelLoader) {
-              subitem.options.plugins.unshift(
-                [
-                  'babel-plugin-styled-components',
-                  {
-                    ssr: true,
-                    pure: true,
-                  },
-                ],
-              );
-            }
-          });
-        }
-      });
-
-      const newConfig = webpackMerge(config, {
-        module: {
-          rules,
-        },
+      const newConfig = rewireStyledComponents(config, env, {
+        ssr: true,
+        pure: true,
       });
 
       return newConfig;

@@ -21,7 +21,7 @@ if (process.env.REACT_APP_IS_SSR === 'true') {
 
 global.$http = $http;
 
-console.log(process.env.REACT_APP_IS_SSR, typeof process.env.REACT_APP_IS_SSR, 'process.env.REACT_APP_IS_SSR');
+console.log(`process.env.REACT_APP_IS_SSR: ${process.env.REACT_APP_IS_SSR}`, `renderType: ${renderType}`);
 
 const Routes = renderRoutes(routes);
 const store = getClientStore();

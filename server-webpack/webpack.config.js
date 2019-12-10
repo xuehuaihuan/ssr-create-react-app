@@ -29,7 +29,7 @@ module.exports = {
               {
                 loader: require.resolve('url-loader'),
                 options: {
-                  limit: 1000,
+                  limit: '10000',
                   name: 'static/media/[name].[hash:8].[ext]',
                 },
               },

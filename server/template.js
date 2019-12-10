@@ -56,15 +56,7 @@ const getTemplate = (path, Routes, store) => {
     .replace('<title>title</title>', helmet.title.toString())
     .replace(/<meta name="description" content="description content"\s*\/>/, helmet.meta.toString())
     .replace('<div id="root"></div>',
-    `
-      ${style}
-      <div id="root">
-        ${html}
-      </div>
-      <script>
-        window.__SERVER_STATE__ = ${__SERVER_STATE__}
-      </script>
-    `,
+    `<div id="root">${style}${html}</div><script>window.__SERVER_STATE__ = ${__SERVER_STATE__}</script>`,
     );
 
   return template;
