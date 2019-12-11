@@ -26,7 +26,7 @@ const Form = (props) => {
           <input
             type='text'
             className='search-input'
-            placeholder='搜索'
+            placeholder='公共搜索'
             onFocus={props.handleSearchFocus}
             onBlur={props.handleSearchBlur}
           />

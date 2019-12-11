@@ -1,6 +1,7 @@
 import Home from '../views/Home';
 import List from '../views/List';
 import Detail from '../views/Detail';
+import NotFound from '../views/components/NotFound';
 
 const routes = [
   {
@@ -24,6 +25,9 @@ const routes = [
     component: Detail,
     exact: true,
     serverLoadData: Detail.serverLoadData,
+  },
+  {
+    component: NotFound,
   },
 ];
 
