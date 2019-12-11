@@ -6,9 +6,6 @@ import { StyledList } from './styles';
 import RecommendedList from './RecommendedList';
 import { getListAsyncAction } from './store';
 
-import defaultProps from './defaultProps';
-import propTypes from './propTypes';
-
 class List extends Component {
   render () {
     return (
@@ -33,9 +30,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-List.defaultProps = defaultProps;
+List.defaultProps = {};
 
-List.propTypes = propTypes;
+List.propTypes = {};
 
 List.serverLoadData = (dispatch) => {
   return dispatch(getListAsyncAction());

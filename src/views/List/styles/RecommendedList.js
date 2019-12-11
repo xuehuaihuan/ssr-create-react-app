@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledRecommendedList = styled.div`
-  .btn-go-detail {
+  .btn-go-to-detail {
     border-radius: 0.2em;
     border: ${props => props.theme.scpx(1)} solid ${props => props.theme.generalColor8};
     padding: ${props => props.theme.scpx(5)} ${props => props.theme.scpx(10)};

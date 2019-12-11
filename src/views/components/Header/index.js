@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import { StyledHome } from './styles';
 import Search from './Search';
 
-import defaultProps from './defaultProps';
-import propTypes from './propTypes';
-
 const Header = (props) => {
   return (
     <StyledHome>
@@ -25,8 +22,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-Header.defaultProps = defaultProps;
+Header.defaultProps = {};
 
-Header.propTypes = propTypes;
+Header.propTypes = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 
 import { StyledSearch } from './styles/Search';
 import {
@@ -9,9 +10,6 @@ import {
   handleSearchBlurAction,
 } from './store';
 import { INPUT_FOCUS_DURATION } from './constant';
-
-import defaultProps from './defaultProps';
-import propTypes from './propTypes';
 
 const Form = (props) => {
   return (
@@ -69,8 +67,14 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-Form.defaultProps = defaultProps;
+Form.defaultProps = {
+  focused: false,
+};
 
-Form.propTypes = propTypes;
+Form.propTypes = {
+  focused: PropTypes.bool,
+  handleSearchFocus: PropTypes.func,
+  handleSearchBlur: PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

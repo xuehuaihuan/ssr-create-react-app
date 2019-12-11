@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
+import { fromJS } from 'immutable';
+import PropTypes from 'prop-types';
 
 import { StyledDetail } from './styles';
 import { getDetailAsyncAction, setDetailAction } from './store';
-
-import defaultProps from './defaultProps';
-import propTypes from './propTypes';
 
 class Detail extends Component {
   render () {
@@ -68,9 +67,16 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-Detail.defaultProps = defaultProps;
+Detail.defaultProps = {
+  detail: fromJS({}),
+};
 
-Detail.propTypes = propTypes;
+Detail.propTypes = {
+  detail: PropTypes.object,
+  match: PropTypes.object,
+  getDetail: PropTypes.func,
+  resetDetail: PropTypes.func,
+};
 
 Detail.serverLoadData = (dispatch, params) => {
   return dispatch(getDetailAsyncAction(params.id));

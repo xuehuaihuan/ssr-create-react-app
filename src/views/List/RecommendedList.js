@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { List } from 'immutable';
 
 import { StyledRecommendedList } from './styles/RecommendedList';
 import { handleChangePageAction, getListAsyncAction, setListAction } from './store';
-
-import defaultProps from './defaultProps';
-import propTypes from './propTypes';
 
 class RecommendedList extends Component {
   getPageList= () => {
@@ -29,7 +28,7 @@ class RecommendedList extends Component {
         >
           <button
             type='button'
-            className='btn-go-detail'
+            className='btn-go-to-detail'
             onClick={() => this.handleClickItem(item.id)}
           >
             {item.keyword}
@@ -113,8 +112,19 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-RecommendedList.defaultProps = defaultProps;
+RecommendedList.defaultProps = {
+  currentPage: 1,
+  totalPage: 1,
+};
 
-RecommendedList.propTypes = propTypes;
+RecommendedList.propTypes = {
+  currentPage: PropTypes.number,
+  totalPage: PropTypes.number,
+  list: PropTypes.instanceOf(List),
+  getList: PropTypes.func,
+  resetList: PropTypes.func,
+  handleChangePage: PropTypes.func,
+  history: PropTypes.object,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RecommendedList));

@@ -5,7 +5,7 @@ export const StyledHome = styled.div`
     padding: ${props => props.theme.scpx(10)};
   }
 
-  .btn-go-next-page {
+  .btn-go-to-list {
     display: block;
     width: 100%;
     border-radius: 2em;
